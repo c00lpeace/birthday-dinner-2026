@@ -493,6 +493,26 @@
 
   /* Fix: summary list is the main list now - never hide it at wide widths (landscape phones) */
   .summary-box{ display:block !important; }
+
+  /* ===== Responsive detail drawer ===== */
+  /* Landscape phones (short height): full-width sheet, photo left + details right */
+  @media (orientation: landscape) and (max-height: 560px){
+    .drawer{ width:100vw; }
+    .drawer-head{ padding:10px 16px; }
+    .drawer-body{ padding:14px 16px; }
+    .drawer-body .card{ display:grid !important; grid-template-columns:minmax(230px,36%) 1fr; column-gap:18px; align-items:start; }
+    .drawer-body .card-img-wrap{ border-radius:12px; position:sticky; top:0; }
+    .drawer-body .card-img-wrap img{ width:100%; height:100%; max-height:calc(100dvh - 110px); object-fit:cover; display:block; }
+    .drawer-body .card-body{ padding:0; }
+  }
+  /* Small portrait phones: sheet hugs the screen edges less, image a bit shorter */
+  @media (orientation: portrait) and (max-width: 480px){
+    .drawer-body .card-img-wrap img{ max-height:300px; width:100%; object-fit:cover; display:block; }
+  }
+  /* Large screens: slightly wider panel */
+  @media (min-width: 1280px){
+    .drawer{ width:480px; }
+  }
 </style>
 </head>
 <body id="top">
